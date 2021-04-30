@@ -17,7 +17,7 @@ resource "aws_security_group" "default" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"] # from here we have to connect to anything within this region
   }
-  tags = merge(map(
-  "Name", "sg-${data.aws_region.current.name}-${var.instance_name}-default"
-  ), local.main_common_tags)
+  tags = merge({
+    "Name" = "sg-${data.aws_region.current.name}-${var.instance_name}-default"
+  }, local.main_common_tags)
 }

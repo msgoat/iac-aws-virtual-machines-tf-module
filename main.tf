@@ -4,9 +4,13 @@
 # Main entrypoint of this Terraform module.
 # ----------------------------------------------------------------------------
 
-provider "aws" {
-  region  = var.region_name
-  version = "~> 3.0"
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 3.0"
+    }
+  }
 }
 
 # Local values used in this module

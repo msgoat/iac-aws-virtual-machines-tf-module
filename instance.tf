@@ -24,8 +24,8 @@ resource "aws_instance" "single" {
     volume_size = var.data_volume_size
     volume_type = "gp2"
   }
-  tags = merge(map(
-  "Name", local.single_instance_fqn
-  ), local.main_common_tags)
+  tags = merge({
+    "Name" = local.single_instance_fqn
+  }, local.main_common_tags)
 }
 
