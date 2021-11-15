@@ -11,7 +11,7 @@ provider "aws" {
 
 # Local values used in this module
 locals {
-  main_common_tags = {
+  local.module_common_tags = {
     Organization = var.organization_name
     Department   = var.department_name
     Project      = var.project_name

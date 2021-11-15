@@ -1,14 +1,9 @@
-
-data "aws_subnet" "subnet" {
-  id = var.subnet_id
-}
-
 locals {
-  single_instance_fqn = "ec2-${data.aws_subnet.subnet.availability_zone}-${var.instance_name}"
+  single_instance_fqn = "ec2-${data.aws_subnet.subnet.availability_zone}-${var.solution_fqn}-${var.instance_name}"
 }
 
 # create a single EC2 instance
-resource "aws_instance" "single" {
+resource aws_instance single {
   ami = var.ami_id
   instance_type = var.instance_type
   subnet_id = data.aws_subnet.subnet.id
@@ -25,7 +20,7 @@ resource "aws_instance" "single" {
     volume_type = "gp2"
   }
   tags = merge({
-    "Name" = local.single_instance_fqn
-  }, local.main_common_tags)
+    Name = local.single_instance_fqn
+  }, local.module_common_tags)
 }
 

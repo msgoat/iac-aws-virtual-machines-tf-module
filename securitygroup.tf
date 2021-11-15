@@ -1,6 +1,6 @@
 # create a default security group for EC2 instance
-resource "aws_security_group" "default" {
-  name        = "sec-${data.aws_region.current.name}-${var.instance_name}-default"
+resource aws_security_group default {
+  name        = "sec-${data.aws_region.current.name}-${var.solution_fqn}-${var.instance_name}-default"
   description = "Controls all inbound and outbound traffic passed through the EC2 instances"
   vpc_id      = data.aws_vpc.given.id
 
@@ -18,6 +18,6 @@ resource "aws_security_group" "default" {
     cidr_blocks = ["0.0.0.0/0"] # from here we have to connect to anything within this region
   }
   tags = merge({
-    "Name" = "sg-${data.aws_region.current.name}-${var.instance_name}-default"
-  }, local.main_common_tags)
+    "Name" = "sg-${data.aws_region.current.name}-${var.solution_fqn}-${var.instance_name}-default"
+  }, local.module_common_tags)
 }
