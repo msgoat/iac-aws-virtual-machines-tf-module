@@ -1,4 +1,4 @@
-# iac-aws-virtual-machines-tf: Terraform module to set up EC2 instances with various options
+# iac-tf-aws-virtual-machines-module: Terraform module to set up EC2 instances with various options
 
 Creates an EC2 instance or an elastic pool of EC2 instances.
  
