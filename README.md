@@ -1,5 +1,7 @@
 # iac-tf-aws-virtual-machines-module: Terraform module to set up EC2 instances with various options
 
+> __@deprecated__ please use git repo [iac-tf-aws-cloudtrain-modules](https://github.com/msgoat/iac-tf-aws-cloudtrain-modules) instead!
+
 Creates an EC2 instance or an elastic pool of EC2 instances.
  
 ## Input Variables
